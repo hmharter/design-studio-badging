@@ -77,36 +77,40 @@
 
 
 
-<form id="issuebadge" action="writeassertion.php" method="post">
-  <label>Issue Badge To (email address): </label><input name="emailaddress" />
+  <form id="issuebadge" action="writeassertion.php" method="post">
+    <label>Issue Badge To (email address): </label><input name="emailaddress" />
+    <input type="button" value="Issue Badge!" class="issue" />
+  </form>
 
-  <input type="button" value="Issue Badge!" class="issue" />
-</form>
+  <form id="claimbadge" action="" method="post">
+    <label>Enter Email Address to claim badge: </label><input name="emailaddress" />
+    <input type="button" value="Claim Badge!" class="claim" />
+  </form>
 
 </div>
 
 <script>
 
   $("input.issue").on("click",function() {
-    console.log("clicked");
+    console.log("issue click");
     $.post('writeassertion.php', $("form#issuebadge").serialize())
       .done( function(url) {
         console.log("Assertion URL: " + url);
-        OpenBadges.issue([url],function(errors, successes) {
-          if (errors.length>0) {
-            console.log("Badge Error:");
-            console.log('%j',errors)
-          }
-          if (successes.length>0) {
-            console.dir("Badge Succes:" + successes);
-          }
-        });
     });
-
-
-
-
   });
+
+  $("input.claim").on("click",function() {
+    console.log("claim click");
+    OpenBadges.issue([url],function(errors, successes) {
+      if (errors.length>0) {
+        console.log("Badge Error:");
+        console.log('%j',errors)
+      }
+      if (successes.length>0) {
+        console.dir("Badge Succes:" + successes);
+      }
+    });
+  })
 
 
 </script>
