@@ -40,6 +40,20 @@
 
     Badge Image (upload/url - MUST be png),
 
+
+  <h2>Register to Issue</h2>
+
+  <form id="regissuer" action="regissuer.php" method="post">
+    <h3>Register as an Issuer</h3>
+    <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
+    <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
+    <label>Issuer Description: </label><textarea rows="2" id="issuerdesc" name="issuerdesc"></textarea>
+    <label>Issuer Email: </label><input type="email" id="issueremail" name="issueremail" />
+    <label>Issuer Logo: </label><input type="file" id="issuerlogo" name="issuerlogo" />
+    <input type="button" value="Register!" class="regissuer" />
+  </form>
+
+
   <h2>Create a Badge</h2>
 
   - Badge Name
@@ -58,6 +72,16 @@
   - Issuer Email Address (optional)
   - Issuer Image/Logo (optional)
 
+  <form id="createbadge" action="" method="post">
+    <h3>Create a Badge</h3>
+    <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
+    <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
+    <label>Badge Image: </label><input type="file" id="badgeimage" name="badgeimage" />
+    <label>Badge Criteria URL: </label><input type="url" id="badgecriteria" name="badgecriteria" />
+    <label>Badge Issuer: </label><select><option value="issuerinfo">Test Issuer</option></select>
+    <input type="button" value="Create Badge!" class="create" />
+  </form>
+
 
   <h2>Issue a Badge</h2>
 
@@ -67,6 +91,11 @@
   - Specify email of person to issue to
     - Click button to add additional email fields, upload excel file?
 
+    <form id="issuebadge" action="writeassertion.php" method="post">
+      <label>Issue Badge To (email address): </label><input type="email" name="emailaddress" />
+      <input type="button" value="Issue Badge!" class="issue" />
+    </form>
+
   <h2>Claim a Badge</h2>
 
   - Select badge from dropdown
@@ -74,22 +103,22 @@
   - Enter email address
   - Click "Claim this Badge"
 
-
-
-
-  <form id="issuebadge" action="writeassertion.php" method="post">
-    <label>Issue Badge To (email address): </label><input name="emailaddress" />
-    <input type="button" value="Issue Badge!" class="issue" />
-  </form>
-
   <form id="claimbadge" action="" method="post">
-    <label>Enter Email Address to claim badge: </label><input name="emailaddress" />
+    <label>Enter Email Address to claim badge: </label><input type="email" name="emailaddress" />
     <input type="button" value="Claim Badge!" class="claim" />
   </form>
 
 </div>
 
 <script>
+
+  $("input.regissuer").on("click",function() {
+    console.log("regissuer click");
+    $.post('regissuer.php', $("form#regissuer").serialize())
+      .done( function(url) {
+        console.log("Issuer URL: " + url);
+    });
+  });
 
   $("input.issue").on("click",function() {
     console.log("issue click");
