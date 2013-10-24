@@ -3,14 +3,14 @@
 //ini_set('display_errors','On');
 //error_reporting(E_ALL | E_STRICT);
 $uid = time();
-$File = "/home/hms181/www/badging/assertions/b$uid.php";
+$File = "/home/hms181/www/badging/data/assertions/b$uid.php";
 $Handle = fopen($File, 'wb') or die("can't create file");
 $email = $_POST['emailaddress'];
 $image = "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png";
 $evidence = "https://example.org/beths-robot-work2.html";
 $issuedOn = $uid;
 $badge = "http://insys.vmhost.psu.edu/~hms181/badging/test-badge.json";
-$url = "http://insys.vmhost.psu.edu/~hms181/badging/assertions/b$uid.php";
+$url = "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/b$uid.php";
 
 function hashEmailAddress($email, $salt) {
   return 'sha256$' . hash('sha256', $email . $salt);
@@ -33,6 +33,6 @@ fwrite($Handle, $Data);
 
 fclose($Handle);
 
-echo "http://insys.vmhost.psu.edu/~hms181/badging/assertions/b$uid.php"
+echo "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/b$uid.php"
 
 ?>

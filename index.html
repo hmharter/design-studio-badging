@@ -9,6 +9,22 @@
   <script src="https://backpack.openbadges.org/issuer.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,500' rel='stylesheet' type='text/css'>
 
+  <script>
+    function refreshissuers() {
+      $('#issuers option').detach();
+      $.getJSON("listissuers.php", function(data){
+        $.each(data, function(i, issuer) {
+            var str = "<option value='" + issuer.id + "'>" + issuer.name + ", " + issuer.url + "</option>";
+            console.log(str);
+            $('#issuers').append(str);
+        });
+      });
+    }
+    jQuery(document).ready(function() {
+      refreshissuers();
+    })
+  </script>
+
 </head>
 
 <body>
@@ -76,9 +92,9 @@
     <h3>Create a Badge</h3>
     <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
     <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
-    <label>Badge Image: </label><input type="file" id="badgeimage" name="badgeimage" />
+    <label>Badge Image: </label><input type="file" id="badgeimg" name="badgeimg" />
     <label>Badge Criteria URL: </label><input type="url" id="badgecriteria" name="badgecriteria" />
-    <label>Badge Issuer: </label><select><option value="issuerinfo">Test Issuer</option></select>
+    <label>Badge Issuer: </label><select id="issuers" name="issuers"></select>
     <input type="button" value="Create Badge!" class="create" />
   </form>
 
@@ -118,6 +134,7 @@
       .done( function(url) {
         console.log("Issuer URL: " + url);
     });
+    refreshissuers();
   });
 
   $("input.issue").on("click",function() {

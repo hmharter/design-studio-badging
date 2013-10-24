@@ -1,9 +1,11 @@
 <?php
 include("config.php");
 session_start();
+// ini_set('display_errors','On');
+// error_reporting(E_ALL | E_STRICT);
 
-{
 if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
     $uid = time();
     $issuername = mysql_real_escape_string($_POST['issuername']);
     $issuerurl = mysql_real_escape_string($_POST['issuerurl']);
