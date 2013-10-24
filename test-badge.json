@@ -1,0 +1,8 @@
+{
+  "name": "Test Badge",
+  "description": "For testing assertions.",
+  "image": "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png",
+  "criteria": "https://example.org/robotics-badge.html",
+  "tags": ["testing", "awesome"],
+  "issuer": "http://insys.vmhost.psu.edu/~hms181/badging/issuerinfo.json"
+}
