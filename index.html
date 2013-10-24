@@ -88,7 +88,7 @@
   - Issuer Email Address (optional)
   - Issuer Image/Logo (optional)
 
-  <form id="createbadge" action="" method="post">
+  <form id="createbadge" action="badgecreate.php" method="post" enctype="multipart/form-data">
     <h3>Create a Badge</h3>
     <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
     <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
@@ -135,6 +135,14 @@
         console.log("Issuer URL: " + url);
     });
     refreshissuers();
+  });
+
+  $("input.create").on("click",function() {
+    console.log("create click");
+    $.post('badgecreate.php', $("form#createbadge").serialize())
+      .done( function(url) {
+        console.log("Badge URL: " + url);
+    });
   });
 
   $("input.issue").on("click",function() {

@@ -6,20 +6,49 @@ include("config.php");
 session_start();
 
 
-// if($_SERVER['REQUEST_METHOD'] == 'POST')
-// {
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
     $uid = time();
-    // $badgename = mysql_real_escape_string($_POST['badgename']);
-    // $badgedesc = mysql_real_escape_string($_POST['badgedesc']);
-    // $badgeimg = mysql_real_escape_string($_POST['badgeimg']);
-    // $badgecriteria = mysql_real_escape_string($_POST['badgecriteria']);
-    // $badgeissuer = mysql_real_escape_string($_POST['issuers']);
+    $badgename = mysql_real_escape_string($_POST['badgename']);
+    $badgeimg = "http://insys.vmhost.psu.edu/~hms181/data/badges/img/$uid.png";
+    $badgedesc = mysql_real_escape_string($_POST['badgedesc']);
+    $badgecriteria = mysql_real_escape_string($_POST['badgecriteria']);
+    $badgeissuer = mysql_real_escape_string($_POST['issuers']);
 
-    $badgename = "New Awesome Badge";
-    $badgedesc = "This is the new awesome badge that I earned";
-    $badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png";
-    $badgecriteria = "https://example.org/robotics-badge.html";
-    $badgeissuer = "1382642578";
+    if($_FILES['badgeimg']['name'])
+        echo "there is a badge";
+    {
+        if(!$_FILES['badgeimg']['error'])
+        {
+            if(!$_FILES['badgeimg']['type'] = "image/png")
+            {
+                $valid_file = false;
+                $message = 'Oops!  Your image must be a PNG.';
+            }
+            if($_FILES['badgeimg']['size'] > (1024000))
+            {
+                $valid_file = false;
+                $message = 'Oops!  Your image must be less than 1MB.';
+            }
+            if($valid_file)
+            {
+                $new_file_name = $uid.".png";
+                move_uploaded_file($_FILES['badgeimg']['tmp_name'], 'data/badges/img/'.$new_file_name);
+                $message = 'Congratulations!  Your image was accepted.';
+            }
+        }
+        else
+        {
+            $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['badgeimg']['error'];
+        }
+    }
+
+
+    // $badgename = "New Awesome Badge";
+    // $badgedesc = "This is the new awesome badge that I earned";
+    // $badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png";
+    // $badgecriteria = "https://example.org/robotics-badge.html";
+    // $badgeissuer = "1382642578";
 
     $query = "INSERT INTO badges (id, name, img, criteria, issuerid, descr) VALUES ('$uid','$badgename','$badgeimg','$badgecriteria','$badgeissuer','$badgedesc')";
     echo $query;
@@ -46,7 +75,7 @@ session_start();
     fclose($Handle);
 
     echo "http://insys.vmhost.psu.edu/~hms181/badging/data/badges/$uid.json";
-// }
+}
 mysql_close();
 
 ?>
