@@ -2,30 +2,31 @@
 
 body, h1, h2, h3, h4, h5, h6, p {
 	font-family: "Roboto", Helvetica, Arial, sans-serif;
-	font-weight: 100;
+	font-weight: 300;
+  background: #f5f3ee;
 }
 
 .clear {clear: both;}
-h1 {text-align: center; padding: 10px; border: 1px solid #fff; margin-bottom: 10px;}
-h2 {cursor: pointer; padding: 10px; border-bottom: 1px solid #fff;}
+h1 {float: left; margin: 0.5em; }
+h2 {padding: 10px; border-bottom: 1px solid #fff;}
 ul {list-style:none;}
-p, li {font-size: 1.3em;}
-.hide {position: absolute; margin-left: -9999px; height: 0..01em;}
+p, li {font-size: 1.3em; padding: .5em 1em;}
+.hide {position: absolute; margin-left: -9999px; height: 0.01em;}
 
 #container {
-	background: #000;
-	-webkit-opacity: 0.9;
-	-moz-opacity: 0.9;
-	filter:alpha(opacity=90);
+  margin: 0 auto;
 	width: 80%;
-	min-height: 100%;
-	color: #fff;
-	margin: 0 10%;
-	padding: 10px;
-
+  max-width: 1000px;
+	color: #333;
 }
 
-#container a {color: #fff;}
+#container a {color: #333;}
+
+header {clear: both; height: 5em; display: block;}
+
+nav {height: 100%; float: right;}
+nav ul {display: inline-block; vertical-align: middle;}
+nav ul li {display: inline-block; }
 
 /* Form Code */
 
@@ -52,9 +53,16 @@ form {
   margin: 20px auto;
 }
 
-input {
+label {
+  width:300px;
+  display:block;
+  margin-top:5px;
+
+}
+
+input, textarea, select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border:1px solid #ccc;
+  border: none;
   font-size:20px;
   width:300px;
   min-height:30px;
@@ -63,11 +71,13 @@ input {
   margin-top:5px;
   outline: none;
 
-  -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  -o-border-radius:5px;
-  -ms-border-radius:5px;
-  border-radius:5px;
+}
+
+input[type="button"] {
+  background: #4A96AD;
+  color: #fff;
+  padding: .5em 1em;
+  font-size: 1.5em;
 }
 
 input[type=submit] {

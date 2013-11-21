@@ -41,17 +41,39 @@
 </head>
 
 <body>
-<div id="container" class="badging">
+<div id="container">
 
-  <header>
-    <h1>Badging</h1>
-    <nav><ul><li>Create a Badge</li><li>Issue a Badge</li><li>Claim a Badge</li></ul></nav>
-  </header>
+  <h1>Create/Issue/Claim Badges...</h1>
 
-  <h2>Step One: Register</h2>
-  <p>To issue a badge, you need to register yourself as an official "issuer" in the system. If you've registered before, skip to Step 2.</p>
+  Info I need to have to issue:
+    -badge image url, file upload?
+    -issuer info: Full name, badge image url, badge info url
+    -badge info: name of badge, badge description, badge image url (again?), badge criteria, tags (optional), issuer info link
+    -specific badge data: uid, recipient email address (salted hash), badge image (AGAIN), evidence link, issue date, badge info url, verify info (self URL)
+    -send post request to badge creator with assertion URL (php file) and receive back a PNG with assertion URL "baked" into it - user can add to backpack through lightboxed modal through API from assertion URL page
+
+
+    Issuer Organization info
+        required: Issuer Name, URL of Issuer Institution or personal page;
+        optional: Issuer description, issuer image (logo), issuer email, revocation list
+
+    Badge info:
+        required: Badge/Achievement name, badge description, badge image URL, badge criteria URL, URL of json file for issuer info
+        optional: alignment (standards alignment, list array: name of standard, url of official description, optional short description of standard), tags (array)
+
+    Badge Assertion:
+        required: unique id (locally unique), recipient (identity object array), badge info json URL, verification (verify object array), issue date
+        optional: image (URL for PNG image, baked - don't do this, they're restricting it eventually), evidence (URL where evidence is stored), expiration date
+
+
+
+    Badge Image (upload/url - MUST be png),
+
+
+  <h2>Register to Issue</h2>
 
   <form id="regissuer" action="" method="post">
+    <h3>Register as an Issuer</h3>
     <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
     <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
     <label>Issuer Description: </label><textarea rows="2" id="issuerdesc" name="issuerdesc"></textarea>
@@ -62,9 +84,25 @@
 
 
   <h2>Create a Badge</h2>
-  <p>Now that you're registered as an issuer, you'll need to create your badge. If you've already created your badge, skip to Step 3.</p>
+
+  - Badge Name
+  - Badge Description
+  - Badge Image
+  - Badge Criteria URL
+  - Badge Issuer URL
+  - Badge Tags (optional)
+  - Badge Alignment (optional)
+    - Alignment Name
+    - Alignment URL
+    - Alignment Description (optional)
+  - Issuer Name
+  - Issuer URL
+  - Issuer Description (optional)
+  - Issuer Email Address (optional)
+  - Issuer Image/Logo (optional)
 
   <form id="createbadge" action="" method="post" enctype="multipart/form-data">
+    <h3>Create a Badge</h3>
     <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
     <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
     <label>Badge Image: </label><input type="file" id="badgeimg" name="badgeimg" />
