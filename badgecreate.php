@@ -10,38 +10,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $uid = time();
     $badgename = mysql_real_escape_string($_POST['badgename']);
-    $badgeimg = "http://insys.vmhost.psu.edu/~hms181/data/badges/img/$uid.png";
+    $badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png";
+    //$badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/data/badges/img/$uid.png";
     $badgedesc = mysql_real_escape_string($_POST['badgedesc']);
     $badgecriteria = mysql_real_escape_string($_POST['badgecriteria']);
     $badgeissuer = mysql_real_escape_string($_POST['issuers']);
 
-    if($_FILES['badgeimg']['name'])
-        echo "there is a badge";
-    {
-        if(!$_FILES['badgeimg']['error'])
-        {
-            if(!$_FILES['badgeimg']['type'] = "image/png")
-            {
-                $valid_file = false;
-                $message = 'Oops!  Your image must be a PNG.';
-            }
-            if($_FILES['badgeimg']['size'] > (1024000))
-            {
-                $valid_file = false;
-                $message = 'Oops!  Your image must be less than 1MB.';
-            }
-            if($valid_file)
-            {
-                $new_file_name = $uid.".png";
-                move_uploaded_file($_FILES['badgeimg']['tmp_name'], 'data/badges/img/'.$new_file_name);
-                $message = 'Congratulations!  Your image was accepted.';
-            }
-        }
-        else
-        {
-            $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['badgeimg']['error'];
-        }
-    }
+    // if($_FILES['badgeimg']['name'])
+    //     echo "there is a badge image";
+    // {
+    //     if(!$_FILES['badgeimg']['error'])
+    //     {
+    //         if(!$_FILES['badgeimg']['type'] = "image/png")
+    //         {
+    //             $valid_file = false;
+    //             $message = 'Oops!  Your image must be a PNG.';
+    //         }
+    //         if($_FILES['badgeimg']['size'] > (1024000))
+    //         {
+    //             $valid_file = false;
+    //             $message = 'Oops!  Your image must be less than 1MB.';
+    //         }
+    //         if($valid_file)
+    //         {
+    //             $new_file_name = $uid.".png";
+    //             move_uploaded_file($_FILES['badgeimg']['tmp_name'], 'data/badges/img/'.$new_file_name);
+    //             $message = 'Congratulations!  Your image was accepted.';
+    //         }
+    //     }
+    //     else
+    //     {
+    //         $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['badgeimg']['error'];
+    //     }
+    // }
 
 
     // $badgename = "New Awesome Badge";
@@ -70,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     //     $Data = "  \"email\": \"$issueremail\",\n";
     //     fwrite($Handle, $Data);
     // }
-    $Data = "  \"issuer\": \"http://insys.vmhost.psu.edu/~hms181/data/issers/$badgeissuer.json\"\n}";
+    $Data = "  \"issuer\": \"http://insys.vmhost.psu.edu/~hms181/badging/data/issuers/$badgeissuer.json\"\n}";
     fwrite($Handle, $Data);
     fclose($Handle);
 

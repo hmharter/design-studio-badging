@@ -74,3 +74,9 @@ input[type=submit] {
   background:none;
   padding:10px;
 }
+
+input[type=radio] {
+  width: auto;
+  margin-right: 0.5em;
+  display: inline;
+}

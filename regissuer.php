@@ -13,11 +13,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $issueremail = mysql_real_escape_string($_POST['issueremail']);
     $issuerlogo = mysql_real_escape_string($_POST['issuerlogo']);
 
+
+
     // $issuername = 'Mr. Issuer';
     // $issuerurl = 'http://www.google.com';
     // $issuerdesc = 'This is the description';
     // $issueremail = 'hmharter@gmail.com';
     // $issuerlogo = '';
+
+
 
     $query = "INSERT INTO issuers (id, name, url, descr, email, logo) VALUES ('$uid','$issuername','$issuerurl','$issuerdesc','$issueremail','$issuerlogo')";
     echo $query;

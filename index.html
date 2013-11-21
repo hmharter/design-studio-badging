@@ -14,14 +14,27 @@
       $('#issuers option').detach();
       $.getJSON("listissuers.php", function(data){
         $.each(data, function(i, issuer) {
-            var str = "<option value='" + issuer.id + "'>" + issuer.name + ", " + issuer.url + "</option>";
-            console.log(str);
-            $('#issuers').append(str);
+            var issuerstr = "<option value='" + issuer.id + "'>" + issuer.name + ", " + issuer.url + "</option>";
+            console.log(issuerstr);
+            $('#issuers').append(issuerstr);
         });
       });
     }
+
+    function refreshbadges() {
+      $('#badges option').detach();
+      $.getJSON("listbadges.php", function(data) {
+        $.each(data, function(b, badge) {
+          var badgestr = "<option value='" + badge.id + "'>" + badge.name + ", " + badge.criteria + "</option>";
+          console.log(badgestr);
+          $('#badges').append(badgestr);
+        })
+      })
+    }
+
     jQuery(document).ready(function() {
       refreshissuers();
+      refreshbadges();
     })
   </script>
 
@@ -30,7 +43,7 @@
 <body>
 <div id="container">
 
-  <h1>Create/Issue/Claim Badges</h1>
+  <h1>Create/Issue/Claim Badges...</h1>
 
   Info I need to have to issue:
     -badge image url, file upload?
@@ -59,7 +72,7 @@
 
   <h2>Register to Issue</h2>
 
-  <form id="regissuer" action="regissuer.php" method="post">
+  <form id="regissuer" action="" method="post">
     <h3>Register as an Issuer</h3>
     <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
     <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
@@ -88,7 +101,7 @@
   - Issuer Email Address (optional)
   - Issuer Image/Logo (optional)
 
-  <form id="createbadge" action="badgecreate.php" method="post" enctype="multipart/form-data">
+  <form id="createbadge" action="" method="post" enctype="multipart/form-data">
     <h3>Create a Badge</h3>
     <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
     <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
@@ -107,22 +120,18 @@
   - Specify email of person to issue to
     - Click button to add additional email fields, upload excel file?
 
-    <form id="issuebadge" action="writeassertion.php" method="post">
+    - duplicate issues will work, won't add another database entry - do we want to notify that the badge has already been issued?
+
+    <form id="issuebadge" action="" method="post">
+      <label>Choose a Badge: </label><select id="badges" name="badges"></select>
       <label>Issue Badge To (email address): </label><input type="email" name="emailaddress" />
+      <label>Evidence URL: </label><input type="url" name="evidence" id="evidence" />
       <input type="button" value="Issue Badge!" class="issue" />
     </form>
 
   <h2>Claim a Badge</h2>
 
-  - Select badge from dropdown
-    - If specific link w/badge in URL sent, badge is auto selected
-  - Enter email address
-  - Click "Claim this Badge"
-
-  <form id="claimbadge" action="" method="post">
-    <label>Enter Email Address to claim badge: </label><input type="email" name="emailaddress" />
-    <input type="button" value="Claim Badge!" class="claim" />
-  </form>
+  <a href="claim.html">claim a badge</a>
 
 </div>
 
@@ -143,29 +152,16 @@
       .done( function(url) {
         console.log("Badge URL: " + url);
     });
+    refreshbadges();
   });
 
   $("input.issue").on("click",function() {
     console.log("issue click");
-    $.post('writeassertion.php', $("form#issuebadge").serialize())
+    $.post('writeassertionjson.php', $("form#issuebadge").serialize())
       .done( function(url) {
         console.log("Assertion URL: " + url);
     });
   });
-
-  $("input.claim").on("click",function() {
-    console.log("claim click");
-    OpenBadges.issue([url],function(errors, successes) {
-      if (errors.length>0) {
-        console.log("Badge Error:");
-        console.log('%j',errors)
-      }
-      if (successes.length>0) {
-        console.dir("Badge Succes:" + successes);
-      }
-    });
-  })
-
 
 </script>
 <script type="text/javascript">
