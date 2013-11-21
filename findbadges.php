@@ -1,7 +1,6 @@
 <?php
-ini_set('display_errors','On');
-error_reporting(E_ALL | E_STRICT);
-
+// ini_set('display_errors','On');
+// error_reporting(E_ALL | E_STRICT);
 include("config.php");
 session_start();
 
@@ -18,23 +17,5 @@ while ($row = mysql_fetch_array($result, true)) {
 };
 
 echo json_encode($data);
-
-
-
-
-
-
-// $query = "SELECT badges.id, badges.name, badges.criteria FROM badges INNER JOIN assertions ON assertions.badgeid = badges.id WHERE assertions.email = '$email'";
-
-// $result = mysql_query($query) or die(mysql_error());
-
-// var_dump($result);
-
-//   $data = array();
-//   while ($row = mysql_fetch_array($result, true)) {
-//       $data[] = $row;
-//   };
-
-//   echo json_encode($data);
 
 ?>

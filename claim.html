@@ -45,29 +45,10 @@
   $("input.claim").on("click",function() {
     console.log("claim click");
 
-    // var urls = "";
-
-    // urls = $("#badges input[name=earnedbadges]:checked").toArray();
-
     var urls = $('#badges input[name=earnedbadges]:checked').map(function () {
       return "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/" + this.value + ".json";
     }).get();
 
-    // $("#badges input[name=earnedbadges]:checked").each(function() {
-    //   urls += "'http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/" + $(this).attr('id') + ".json',";
-    // });
-
-    // urls = urls.substring(0, urls.length -1);
-
-        // var $checked = $("#badges input[name=earnedbadges]:checked"),
-        //     result = $checked.map(function () {
-        //         var $this = $(this);
-        //         return "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/" + $this.attr('id') + ".json";
-        //     }).get().join(", ");
-
-    // var assertionid = $("#badges input[name=earnedbadges]:checked").val();
-    // var assertionurl = "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/" + assertionid + ".json";
-    console.log("assertion url: " + urls);
     OpenBadges.issue(urls,function(errors, successes) {
       if (errors.length>0) {
         console.log("Badge Error:");

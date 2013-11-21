@@ -1,7 +1,6 @@
 <?php
-ini_set('display_errors','On');
-error_reporting(E_ALL | E_STRICT);
-
+// ini_set('display_errors','On');
+// error_reporting(E_ALL | E_STRICT);
 include("config.php");
 session_start();
 
@@ -16,6 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $badgecriteria = mysql_real_escape_string($_POST['badgecriteria']);
     $badgeissuer = mysql_real_escape_string($_POST['issuers']);
 
+    //
+    // Reactivate this code when the image upload is working
+    //
     // if($_FILES['badgeimg']['name'])
     //     echo "there is a badge image";
     // {
@@ -44,13 +46,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     //     }
     // }
 
-
-    // $badgename = "New Awesome Badge";
-    // $badgedesc = "This is the new awesome badge that I earned";
-    // $badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png";
-    // $badgecriteria = "https://example.org/robotics-badge.html";
-    // $badgeissuer = "1382642578";
-
     $query = "INSERT INTO badges (id, name, img, criteria, issuerid, descr) VALUES ('$uid','$badgename','$badgeimg','$badgecriteria','$badgeissuer','$badgedesc')";
     echo $query;
 
@@ -63,14 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $Data = "{\n  \"name\": \"$badgename\",\n  \"description\": \"$badgedesc\",\n  \"image\": \"$badgeimg\",\n  \"criteria\": \"$badgecriteria\",\n";
     fwrite($Handle, $Data);
-    // if (strlen($)>0) {
-    //     $Data = "  \"image\": \"$issuerlogo\",\n";
-    //     fwrite($Handle, $Data);
-    // }
-    // if (strlen($issueremail)>0) {
-    //     $Data = "  \"email\": \"$issueremail\",\n";
-    //     fwrite($Handle, $Data);
-    // }
+
     $Data = "  \"issuer\": \"http://insys.vmhost.psu.edu/~hms181/badging/data/issuers/$badgeissuer.json\"\n}";
     fwrite($Handle, $Data);
     fclose($Handle);
