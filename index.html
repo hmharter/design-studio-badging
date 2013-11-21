@@ -151,6 +151,7 @@
     $.post('badgecreate.php', $("form#createbadge").serialize())
       .done( function(url) {
         console.log("Badge URL: " + url);
+
     });
     refreshbadges();
   });
@@ -160,6 +161,9 @@
     $.post('writeassertionjson.php', $("form#issuebadge").serialize())
       .done( function(url) {
         console.log("Assertion URL: " + url);
+        if (url.indexOf("http") < 0) {
+          alert("You have already issued this badge. Please choose another badge or specify a different recipient.");
+        }
     });
   });
 

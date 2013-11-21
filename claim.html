@@ -34,7 +34,7 @@
     var badgestr = "";
     $.getJSON("findbadges.php", function(data) {
       $.each(data, function(b, badge) {
-        badgestr = "<div class='badge'><input type='radio' name='earnedbadges' id='" + badge.id + "' value='" + badge.id + "'><label for='" + badge.id + "'><a target='_blank' href='" + badge.criteria + "'>" + badge.name + "</a></label></div>";
+        badgestr = "<div class='badge'><input type='radio' name='earnedbadges' id='" + badge.assertionid + "' value='" + badge.assertionid + "'><label for='" + badge.assertionid + "'><a target='_blank' href='" + badge.criteria + "'>" + badge.name + "</a></label></div>";
         console.log(badgestr);
         $('#badges').append(badgestr);
       })
@@ -44,10 +44,10 @@
 
   $("input.claim").on("click",function() {
     console.log("claim click");
-    var badgeid = $("#badges input[name=earnedbadges]:checked").val();
-    var badgeurl = "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/" + badgeid + ".json";
-    console.log("badge url: " + badgeurl);
-    OpenBadges.issue([badgeurl],function(errors, successes) {
+    var assertionid = $("#badges input[name=earnedbadges]:checked").val();
+    var assertionurl = "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/" + assertionid + ".json";
+    console.log("assertion url: " + assertionurl);
+    OpenBadges.issue([assertionurl],function(errors, successes) {
       if (errors.length>0) {
         console.log("Badge Error:");
         console.log('%j',errors)

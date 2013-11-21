@@ -9,7 +9,7 @@ session_start();
 $email = "hmharter@gmail.com";
 
 
-$result = mysql_query("SELECT badges.id, badges.name, badges.criteria, assertions.assertionid FROM badges INNER JOIN assertions ON assertions.badgeid = badges.id WHERE assertions.email = '$email'");
+$result = mysql_query("SELECT badges.id as id, badges.name as name, badges.criteria as criteria, assertions.assertionid as assertionid FROM badges INNER JOIN assertions ON assertions.badgeid = badges.id WHERE assertions.email = '$email'");
 if (!$result) { die("Query failed"); }
 
 $data = array();
