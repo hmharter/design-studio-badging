@@ -17,7 +17,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 
 .clear {clear: both;}
 h1 {float: left; margin: 0.25em;}
-h2 {padding: 10px; background: #fff; color: #7D1935;}
+h2 {padding: 10px; color: #7D1935; font-size: 3em; font-weight: 800;}
 ul {list-style:none;}
 p, li {font-size: 1.3em; padding: .5em 1em;}
 a {color: #333;}
@@ -31,46 +31,10 @@ a {color: #333;}
   position: relative;
 }
 
-header {
-  clear: both;
-  height: 4em;
-  display: block;
-  background: #FFFFFF;
+.wrapper {
+  width: 50em;
+  margin: 0 auto;
 }
-
-.header {
-  width: 80%;
-  margin: 0 10%;
-  max-width: 1000px;
-}
-
-header h1 {margin-left: 0.1em;}
-header img {
-  height: 2.5em;
-  width: auto;
-  float: left;
-  margin: 0.7em 0 0.2em 0.5em;
-  display: none;
-}
-
-nav {height: 100%; text-align: center;}
-nav ul {display: inline-block; margin-top: .5em;}
-nav ul li {display: inline-block; font-size: 1.1em;}
-nav ul li a {text-decoration: none;}
-
-
-header.fixed {
-  position: fixed;
-  width: 100%;
-  top: 0;
-}
-
-header.fixed img {
-  display: block;
-}
-
-header.fixed nav {float: right;}
-
 
 .hero {
   padding-top: 4em;
@@ -80,11 +44,10 @@ header.fixed nav {float: right;}
   background: #7D1935;
   text-align: center;
 }
-
-.wrapper {
+.hero .wrapper {
   width: 42em;
-  margin: 0 auto;
 }
+
 .hero img {
   float: left;
   height: 10em;
@@ -99,9 +62,76 @@ header.fixed nav {float: right;}
   margin-left: .15em;
 }
 
+header {
+  clear: both;
+  height: 4em;
+  display: block;
+  background: #FFFFFF;
+  position: relative;
+  width: 100%;
+}
+header.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.header {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+header h1 {
+  margin-left: 0.1em;
+}
+header img {
+  height: 2.5em;
+  width: auto;
+  float: left;
+  margin: 0.7em 0 0.2em 0.5em;
+  position: absolute;
+  display: none;
+}
+
+header.fixed img {
+  display: block;
+}
+
+header nav {
+  height: 100%;
+  width: 100%;
+}
+
+nav ul {
+  display: inline-block;
+  margin-top: .65em;
+  width: 100%;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+  font-size: 1.1em;
+  width: 15%;
+  padding: .5em 0;
+  transition: padding .5s ease;
+}
+nav ul li:hover {
+  background: #4A96AD;
+}
+nav ul li:hover a {
+  color: #fff;
+}
+nav ul li a {
+  text-decoration: none;
+}
+
+
+
+
+
 .mainsection {
   background: #F5F3EE;
-  padding-top: 1em;
+  padding-top: 2em;
 }
 
 .mainsection.fixedheader {
