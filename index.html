@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Heather's Design Studio Website</title>
+  <title>Badger - Create and Issue Digital Badges</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <!-- Stylesheet -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -41,107 +41,136 @@
 </head>
 
 <body>
-<div id="container" class="badging">
+
+  <section class="hero">
+    <div class="wrapper">
+      <img src="images/badger.png" />
+      <div class="text">Badger</div>
+    </div>
+  </section>
 
   <header>
-    <h1>Badging</h1>
-    <nav><ul><li>Create a Badge</li><li>Issue a Badge</li><li>Claim a Badge</li></ul></nav>
+    <div class="header">
+      <img src="images/badger-black.png" /> <h1 class="hide">Badger</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Get Started</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Create</a></li>
+          <li><a href="#">Issue</a></li>
+          <li><a href="#">Claim</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <h2>Step One: Register</h2>
-  <p>To issue a badge, you need to register yourself as an official "issuer" in the system. If you've registered before, skip to Step 2.</p>
+  <section class="mainsection">
 
-  <form id="regissuer" action="" method="post">
-    <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
-    <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
-    <label>Issuer Description: </label><textarea rows="2" id="issuerdesc" name="issuerdesc"></textarea>
-    <label>Issuer Email: </label><input type="email" id="issueremail" name="issueremail" />
-    <label>Issuer Logo: </label><input type="file" id="issuerlogo" name="issuerlogo" />
-    <input type="button" value="Register!" class="regissuer" />
-  </form>
+    <div class="wrapper">
 
+      <h2>Get Started</h2>
+      <p>This is information about how to get started with badging</p>
 
-  <h2>Create a Badge</h2>
-  <p>Now that you're registered as an issuer, you'll need to create your badge. If you've already created your badge, skip to Step 3.</p>
+      <h2>Step One: Register</h2>
+      <p>To issue a badge, you need to register yourself as an official "issuer" in the system. If you've registered before, skip to Step 2.</p>
 
-  <form id="createbadge" action="" method="post" enctype="multipart/form-data">
-    <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
-    <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
-    <label>Badge Image: </label><input type="file" id="badgeimg" name="badgeimg" />
-    <label>Badge Criteria URL: </label><input type="url" id="badgecriteria" name="badgecriteria" />
-    <label>Badge Issuer: </label><select id="issuers" name="issuers"></select>
-    <input type="button" value="Create Badge!" class="create" />
-  </form>
+      <form id="regissuer" action="" method="post">
+        <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
+        <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
+        <label>Issuer Description: </label><textarea rows="2" id="issuerdesc" name="issuerdesc"></textarea>
+        <label>Issuer Email: </label><input type="email" id="issueremail" name="issueremail" />
+        <label>Issuer Logo: </label><input type="file" id="issuerlogo" name="issuerlogo" />
+        <input type="button" value="Register!" class="regissuer" />
+      </form>
 
 
-  <h2>Issue a Badge</h2>
+      <h2>Create a Badge</h2>
+      <p>Now that you're registered as an issuer, you'll need to create your badge. If you've already created your badge, skip to Step 3.</p>
 
-  https://github.com/mozilla/openbadges/wiki/Assertions#assertion-specification
+      <form id="createbadge" action="" method="post" enctype="multipart/form-data">
+        <label>Badge Name: </label><input type="text" id="badgename" name="badgename" />
+        <label>Badge Description: </label><textarea rows="3" id="badgedesc" name="badgedesc"></textarea>
+        <label>Badge Image: </label><input type="file" id="badgeimg" name="badgeimg" />
+        <label>Badge Criteria URL: </label><input type="url" id="badgecriteria" name="badgecriteria" />
+        <label>Badge Issuer: </label><select id="issuers" name="issuers"></select>
+        <input type="button" value="Create Badge!" class="create" />
+      </form>
 
-  - Choose badge from dropdown, or click "Create Badge"
-  - Specify email of person to issue to
-    - Click button to add additional email fields, upload excel file?
 
-    - duplicate issues will work, won't add another database entry - do we want to notify that the badge has already been issued?
+      <h2>Issue a Badge</h2>
 
-    <form id="issuebadge" action="" method="post">
-      <label>Choose a Badge: </label><select id="badges" name="badges"></select>
-      <label>Issue Badge To (email address): </label><input type="email" name="emailaddress" />
-      <label>Evidence URL: </label><input type="url" name="evidence" id="evidence" />
-      <input type="button" value="Issue Badge!" class="issue" />
-    </form>
+      <form id="issuebadge" action="" method="post">
+        <label>Choose a Badge: </label><select id="badges" name="badges"></select>
+        <label>Issue Badge To (email address): </label><input type="email" name="emailaddress" />
+        <label>Evidence URL: </label><input type="url" name="evidence" id="evidence" />
+        <input type="button" value="Issue Badge!" class="issue" />
+      </form>
 
-  <h2>Claim a Badge</h2>
+      <h2>Claim a Badge</h2>
 
-  <a href="claim.html">claim a badge</a>
+      <a href="claim.html">claim a badge</a>
 
-</div>
+    </div>
+  </section>
 
-<script>
+  <script>
 
-  $("input.regissuer").on("click",function() {
-    console.log("regissuer click");
-    $.post('regissuer.php', $("form#regissuer").serialize())
-      .done( function(url) {
-        console.log("Issuer URL: " + url);
-    });
-    refreshissuers();
+  jQuery(function(){
+    var menuOffset = jQuery('header')[0].offsetTop;
+    jQuery(document).bind('ready scroll',function() {
+      var docScroll = jQuery(document).scrollTop();
+      if(docScroll >= menuOffset) {
+        jQuery('header').addClass('fixed');
+        jQuery('.mainsection').addClass('fixedheader');
+      } else {
+        jQuery('header').removeClass('fixed');
+        jQuery('.mainsection').removeClass('fixedheader');
+      }
+     });
   });
 
-  $("input.create").on("click",function() {
-    console.log("create click");
-    $.post('badgecreate.php', $("form#createbadge").serialize())
-      .done( function(url) {
-        console.log("Badge URL: " + url);
-
+    $("input.regissuer").on("click",function() {
+      console.log("regissuer click");
+      $.post('regissuer.php', $("form#regissuer").serialize())
+        .done( function(url) {
+          console.log("Issuer URL: " + url);
+      });
+      refreshissuers();
     });
-    refreshbadges();
-  });
 
-  $("input.issue").on("click",function() {
-    console.log("issue click");
-    $.post('writeassertionjson.php', $("form#issuebadge").serialize())
-      .done( function(url) {
-        console.log("Assertion URL: " + url);
-        if (url.indexOf("http") < 0) {
-          alert("You have already issued this badge. Please choose another badge or specify a different recipient.");
-        }
+    $("input.create").on("click",function() {
+      console.log("create click");
+      $.post('badgecreate.php', $("form#createbadge").serialize())
+        .done( function(url) {
+          console.log("Badge URL: " + url);
+      });
+      refreshbadges();
     });
-  });
 
-</script>
-<script type="text/javascript">
+    $("input.issue").on("click",function() {
+      console.log("issue click");
+      $.post('writeassertionjson.php', $("form#issuebadge").serialize())
+        .done( function(url) {
+          console.log("Assertion URL: " + url);
+          if (url.indexOf("http") < 0) {
+            alert("You have already issued this badge. Please choose another badge or specify a different recipient.");
+          }
+      });
+    });
+  </script>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38178749-1']);
-  _gaq.push(['_trackPageview']);
+  <script type="text/javascript">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38178749-1']);
+    _gaq.push(['_trackPageview']);
 
-</script>
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 </body>
 </html>

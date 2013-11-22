@@ -1,16 +1,26 @@
+/*
+#7D1935
+#4A96AD
+#F5F3EE*/
+
+
 * {margin: 0; padding: 0;}
+
+body {
+  background: #7D1935;
+}
 
 body, h1, h2, h3, h4, h5, h6, p {
 	font-family: "Roboto", Helvetica, Arial, sans-serif;
 	font-weight: 300;
-  background: #f5f3ee;
 }
 
 .clear {clear: both;}
-h1 {float: left; margin: 0.5em; }
-h2 {padding: 10px; border-bottom: 1px solid #fff;}
+h1 {float: left; margin: 0.25em;}
+h2 {padding: 10px; background: #fff; color: #7D1935;}
 ul {list-style:none;}
 p, li {font-size: 1.3em; padding: .5em 1em;}
+a {color: #333;}
 .hide {position: absolute; margin-left: -9999px; height: 0.01em;}
 
 #container {
@@ -18,15 +28,85 @@ p, li {font-size: 1.3em; padding: .5em 1em;}
 	width: 80%;
   max-width: 1000px;
 	color: #333;
+  position: relative;
 }
 
-#container a {color: #333;}
+header {
+  clear: both;
+  height: 4em;
+  display: block;
+  background: #FFFFFF;
+}
 
-header {clear: both; height: 5em; display: block;}
+.header {
+  width: 80%;
+  margin: 0 10%;
+  max-width: 1000px;
+}
 
-nav {height: 100%; float: right;}
-nav ul {display: inline-block; vertical-align: middle;}
-nav ul li {display: inline-block; }
+header h1 {margin-left: 0.1em;}
+header img {
+  height: 2.5em;
+  width: auto;
+  float: left;
+  margin: 0.7em 0 0.2em 0.5em;
+  display: none;
+}
+
+nav {height: 100%; text-align: center;}
+nav ul {display: inline-block; margin-top: .5em;}
+nav ul li {display: inline-block; font-size: 1.1em;}
+nav ul li a {text-decoration: none;}
+
+
+header.fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+header.fixed img {
+  display: block;
+}
+
+header.fixed nav {float: right;}
+
+
+.hero {
+  padding-top: 4em;
+  clear: both;
+  display: block;
+  height: 13em;
+  background: #7D1935;
+  text-align: center;
+}
+
+.wrapper {
+  width: 42em;
+  margin: 0 auto;
+}
+.hero img {
+  float: left;
+  height: 10em;
+  width: auto;
+}
+.hero .text {
+  color: #fff;
+  float: left;
+  font-size: 9em;
+  line-height: 1em;
+  font-weight: 800;
+  margin-left: .15em;
+}
+
+.mainsection {
+  background: #F5F3EE;
+  padding-top: 1em;
+}
+
+.mainsection.fixedheader {
+  margin-top: 4em;
+}
 
 /* Form Code */
 
