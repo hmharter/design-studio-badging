@@ -1,41 +1,99 @@
-
-* {margin: 0; padding: 0;}
+/* line 2, ../sass/style.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
 
 /*body {
   background: #3D3446;
 }*/
-
+/* line 8, ../sass/style.scss */
 body, h1, h2, h3, h4, h5, h6, p {
-	font-family: "Roboto", Helvetica, Arial, sans-serif;
-	font-weight: 300;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
-.clear {clear: both;}
-h1 {float: left; margin: 0.25em;}
-h2 {padding: 10px; color: #7D1935; font-size: 3em; font-weight: 800;}
-ul {list-style:none;}
-p, li {font-size: 1.3em; padding: .5em 1em;}
-a {color: #333;}
-.hidden {position: absolute; margin-left: -9999px; height: 0.01em;}
+/* line 13, ../sass/style.scss */
+.clear {
+  clear: both;
+}
+
+/* line 14, ../sass/style.scss */
+h1 {
+  float: left;
+  margin: 0.25em;
+}
+
+/* line 15, ../sass/style.scss */
+h2 {
+  padding: 10px;
+  color: #7D1935;
+  font-size: 3em;
+  font-weight: 800;
+}
+
+/* line 16, ../sass/style.scss */
+ul {
+  list-style: none;
+}
+
+/* line 17, ../sass/style.scss */
+p, li {
+  font-size: 1.3em;
+  padding: .5em 1em;
+}
+
+/* line 18, ../sass/style.scss */
+a {
+  color: #333;
+}
+
+/* line 19, ../sass/style.scss */
+.hidden {
+  position: absolute;
+  margin-left: -9999px;
+  height: 0.01em;
+}
+
+/* line 20, ../sass/style.scss */
 section {
   min-height: 500px;
   width: 100%;
-  margin:0; padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-section.getstarted {background: #EFB482; min-height: 300px;}
-section.create {background: #31C6CE;}
-section.issue {background: #F1564F;}
-section.claim {background: #FFFBE8;}
+/* line 26, ../sass/style.scss */
+section.getstarted {
+  background: #EFB482;
+  min-height: 300px;
+}
 
+/* line 27, ../sass/style.scss */
+section.create {
+  background: #31C6CE;
+}
+
+/* line 28, ../sass/style.scss */
+section.issue {
+  background: #F1564F;
+}
+
+/* line 29, ../sass/style.scss */
+section.claim {
+  background: #FFFBE8;
+}
+
+/* line 31, ../sass/style.scss */
 #container {
   margin: 0 auto;
-	width: 80%;
+  width: 80%;
   max-width: 1000px;
-	color: #333;
+  color: #333;
   position: relative;
 }
 
+/* line 39, ../sass/style.scss */
 .wrapper {
   width: 50em;
   margin: 0 auto;
@@ -43,16 +101,19 @@ section.claim {background: #FFFBE8;}
   padding-top: 5em;
 }
 
+/* line 46, ../sass/style.scss */
 header {
   clear: both;
   z-index: 500;
   background: #FFFFFF;
   position: relative;
   width: 100%;
-  visibility:hidden;
+  visibility: hidden;
   top: 0;
   height: 0em;
 }
+
+/* line 56, ../sass/style.scss */
 header.fixed {
   position: fixed;
   visibility: visible;
@@ -60,15 +121,19 @@ header.fixed {
   height: 4em;
 }
 
+/* line 63, ../sass/style.scss */
 .header {
   width: 80%;
   margin: 0 auto;
   max-width: 1000px;
 }
 
+/* line 69, ../sass/style.scss */
 header h1 {
   margin-left: 0.1em;
 }
+
+/* line 72, ../sass/style.scss */
 header img {
   height: 2.5em;
   width: auto;
@@ -78,21 +143,26 @@ header img {
   display: none;
 }
 
+/* line 81, ../sass/style.scss */
 header.fixed img {
   display: block;
 }
 
+/* line 85, ../sass/style.scss */
 header nav {
   height: 100%;
   width: 100%;
 }
 
+/* line 90, ../sass/style.scss */
 nav ul {
   display: inline-block;
   margin-top: .65em;
   width: 100%;
   text-align: center;
 }
+
+/* line 96, ../sass/style.scss */
 nav ul li {
   display: inline-block;
   font-size: 1.1em;
@@ -100,18 +170,23 @@ nav ul li {
   padding: .5em 0;
   transition: padding .5s ease;
 }
+
+/* line 103, ../sass/style.scss */
 nav ul li:hover {
   background: #4A96AD;
 }
+
+/* line 106, ../sass/style.scss */
 nav ul li:hover a {
   color: #fff;
 }
+
+/* line 109, ../sass/style.scss */
 nav ul li a {
   text-decoration: none;
 }
 
-
-
+/* line 115, ../sass/style.scss */
 .hero {
   clear: both;
   display: block;
@@ -119,17 +194,22 @@ nav ul li a {
   background: #3D3446;
   text-align: center;
 }
+
+/* line 122, ../sass/style.scss */
 .hero .wrapper {
   width: 42em;
   height: 12.5em;
   padding: 0;
 }
 
+/* line 128, ../sass/style.scss */
 .hero img {
   float: left;
   height: 10em;
   width: auto;
 }
+
+/* line 133, ../sass/style.scss */
 .hero .text {
   color: #fff;
   float: left;
@@ -139,52 +219,54 @@ nav ul li a {
   margin-left: .15em;
 }
 
-
 /* Form Code */
-
+/* line 145, ../sass/style.scss */
 :invalid {
   border-color: #e88;
-  -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
-  -moz-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
-  -o-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
-  -ms-box-shadow: 0 0 5px rbba(255, 0, 0, .8);
-  box-shadow:0 0 5px rgba(255, 0, 0, .8);
+  -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 5px rbba(255, 0, 0, 0.8);
+  -o-box-shadow: 0 0 5px rbba(255, 0, 0, 0.8);
+  -ms-box-shadow: 0 0 5px rbba(255, 0, 0, 0.8);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
 }
 
+/* line 154, ../sass/style.scss */
 :required {
   border-color: #88a;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  -ms-box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
 }
 
+/* line 163, ../sass/style.scss */
 form {
-  width:300px;
+  width: 300px;
   margin: 20px auto;
 }
 
+/* line 168, ../sass/style.scss */
 label {
-  width:300px;
-  display:block;
-  margin-top:5px;
-
+  width: 300px;
+  display: block;
+  margin-top: 5px;
 }
 
+/* line 175, ../sass/style.scss */
 input, textarea, select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border: none;
-  font-size:20px;
-  width:300px;
-  min-height:30px;
-  display:block;
-  margin-bottom:15px;
-  margin-top:5px;
+  font-size: 20px;
+  width: 300px;
+  min-height: 30px;
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 5px;
   outline: none;
-
 }
 
+/* line 188, ../sass/style.scss */
 input[type="button"] {
   background: #4A96AD;
   color: #fff;
@@ -192,11 +274,13 @@ input[type="button"] {
   font-size: 1.5em;
 }
 
+/* line 195, ../sass/style.scss */
 input[type=submit] {
-  background:none;
-  padding:10px;
+  background: none;
+  padding: 10px;
 }
 
+/* line 200, ../sass/style.scss */
 input[type=checkbox], input[type=radio] {
   width: auto;
   margin-right: 0.5em;

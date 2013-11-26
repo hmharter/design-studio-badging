@@ -197,7 +197,7 @@
 
     $("input.issue").on("click",function() {
       console.log("issue click");
-      $.post('writeassertionjson.php', $("form#issuebadge").serialize())
+      $.post('writeassertion.php', $("form#issuebadge").serialize())
         .done( function(url) {
           console.log("Assertion URL: " + url);
           if (url.indexOf("http") < 0) {

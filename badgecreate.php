@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $uid = time();
     $badgename = mysql_real_escape_string($_POST['badgename']);
-    $badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/101badge.png";
+    $badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/images/101badge.png";
     //$badgeimg = "http://insys.vmhost.psu.edu/~hms181/badging/data/badges/img/$uid.png";
     $badgedesc = mysql_real_escape_string($_POST['badgedesc']);
     $badgecriteria = mysql_real_escape_string($_POST['badgecriteria']);
