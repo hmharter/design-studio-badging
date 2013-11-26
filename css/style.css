@@ -1,14 +1,9 @@
-/*
-#7D1935
-#4A96AD
-#F5F3EE*/
-
 
 * {margin: 0; padding: 0;}
 
-body {
-  background: #7D1935;
-}
+/*body {
+  background: #3D3446;
+}*/
 
 body, h1, h2, h3, h4, h5, h6, p {
 	font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -21,7 +16,17 @@ h2 {padding: 10px; color: #7D1935; font-size: 3em; font-weight: 800;}
 ul {list-style:none;}
 p, li {font-size: 1.3em; padding: .5em 1em;}
 a {color: #333;}
-.hide {position: absolute; margin-left: -9999px; height: 0.01em;}
+.hidden {position: absolute; margin-left: -9999px; height: 0.01em;}
+section {
+  min-height: 500px;
+  width: 100%;
+  margin:0; padding:0;
+}
+
+section.getstarted {background: #EFB482; min-height: 300px;}
+section.create {background: #31C6CE;}
+section.issue {background: #F1564F;}
+section.claim {background: #FFFBE8;}
 
 #container {
   margin: 0 auto;
@@ -34,45 +39,25 @@ a {color: #333;}
 .wrapper {
   width: 50em;
   margin: 0 auto;
-}
-
-.hero {
-  padding-top: 4em;
-  clear: both;
-  display: block;
-  height: 13em;
-  background: #7D1935;
-  text-align: center;
-}
-.hero .wrapper {
-  width: 42em;
-}
-
-.hero img {
-  float: left;
-  height: 10em;
-  width: auto;
-}
-.hero .text {
-  color: #fff;
-  float: left;
-  font-size: 9em;
-  line-height: 1em;
-  font-weight: 800;
-  margin-left: .15em;
+  position: relative;
+  padding-top: 5em;
 }
 
 header {
   clear: both;
-  height: 4em;
-  display: block;
+  z-index: 500;
   background: #FFFFFF;
   position: relative;
   width: 100%;
+  visibility:hidden;
+  top: 0;
+  height: 0em;
 }
 header.fixed {
   position: fixed;
-  top: 0;
+  visibility: visible;
+  display: block;
+  height: 4em;
 }
 
 .header {
@@ -127,16 +112,33 @@ nav ul li a {
 
 
 
-
-
-.mainsection {
-  background: #F5F3EE;
-  padding-top: 2em;
+.hero {
+  clear: both;
+  display: block;
+  height: 13em;
+  background: #3D3446;
+  text-align: center;
+}
+.hero .wrapper {
+  width: 42em;
+  height: 12.5em;
+  padding: 0;
 }
 
-.mainsection.fixedheader {
-  margin-top: 4em;
+.hero img {
+  float: left;
+  height: 10em;
+  width: auto;
 }
+.hero .text {
+  color: #fff;
+  float: left;
+  font-size: 9em;
+  line-height: 1em;
+  font-weight: 800;
+  margin-left: .15em;
+}
+
 
 /* Form Code */
 

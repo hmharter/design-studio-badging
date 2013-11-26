@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 <head>
   <title>Badger - Create and Issue Digital Badges</title>
@@ -34,15 +36,43 @@
       })
     }
 
-    jQuery(document).ready(function() {
+    function sectionHeight(){
+      var windowHeight = $(window).height();
+      console.log("windowHeight: " + windowHeight);
+      var minSectionHeight = parseInt($("section").css("min-height"));
+      if(windowHeight>minSectionHeight){
+        $.each($("section"),function(k,v){
+          $(this).css("height",windowHeight);
+        });
+      }
+
+      $.each($(".hero .wrapper"),function(k,v){
+        var section = $(this).parent("section");
+        var heightSectionHalf = section.height()/2;
+        var heightHalf = $(this).height()/2;
+        console.log("heightSectionHalf: " + heightSectionHalf);
+        console.log("heightHalf: " + heightHalf);
+        $(this).css("top",heightSectionHalf);
+        $(this).css("top","-="+heightHalf);
+      });
+    }
+
+    $(document).ready(function() {
       refreshissuers();
       refreshbadges();
+      sectionHeight();
+    })
+
+    $(window).resize(function() {
+      sectionHeight();
     })
   </script>
 
 </head>
 
 <body>
+
+
 
   <section class="hero">
     <div class="wrapper">
@@ -53,7 +83,7 @@
 
   <header>
     <div class="header">
-      <img src="images/badger-black.png" /> <h1 class="hide">Badger</h1>
+      <img src="images/badger-black.png" /> <h1 class="hidden">Badger</h1>
       <nav>
         <ul>
           <li><a href="#">Get Started</a></li>
@@ -66,25 +96,29 @@
     </div>
   </header>
 
-  <section class="mainsection">
-
+  <section class="getstarted">
     <div class="wrapper">
 
       <h2>Get Started</h2>
       <p>This is information about how to get started with badging</p>
+    </div>
+  </section>
 
-      <h2>Step One: Register</h2>
-      <p>To issue a badge, you need to register yourself as an official "issuer" in the system. If you've registered before, skip to Step 2.</p>
+  <section class="create">
+    <div class="wrapper">
+      <div class="register hidden">
+        <h2>Step One: Register</h2>
+        <p>To issue a badge, you need to register yourself as an official "issuer" in the system. If you've registered before, skip to Step 2.</p>
 
-      <form id="regissuer" action="" method="post">
-        <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
-        <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
-        <label>Issuer Description: </label><textarea rows="2" id="issuerdesc" name="issuerdesc"></textarea>
-        <label>Issuer Email: </label><input type="email" id="issueremail" name="issueremail" />
-        <label>Issuer Logo: </label><input type="file" id="issuerlogo" name="issuerlogo" />
-        <input type="button" value="Register!" class="regissuer" />
-      </form>
-
+        <form id="regissuer" action="" method="post">
+          <label>Issuer Name: </label><input type="text" id="issuername" name="issuername" />
+          <label>Issuer URL: </label><input type="url" id="issuerurl" name="issuerurl" />
+          <label>Issuer Description: </label><textarea rows="2" id="issuerdesc" name="issuerdesc"></textarea>
+          <label>Issuer Email: </label><input type="email" id="issueremail" name="issueremail" />
+          <label>Issuer Logo: </label><input type="file" id="issuerlogo" name="issuerlogo" />
+          <input type="button" value="Register!" class="regissuer" />
+        </form>
+      </div>
 
       <h2>Create a Badge</h2>
       <p>Now that you're registered as an issuer, you'll need to create your badge. If you've already created your badge, skip to Step 3.</p>
@@ -98,6 +132,12 @@
         <input type="button" value="Create Badge!" class="create" />
       </form>
 
+    </div>
+  </section>
+
+
+  <section class="issue">
+    <div class="wrapper">
 
       <h2>Issue a Badge</h2>
 
@@ -107,7 +147,11 @@
         <label>Evidence URL: </label><input type="url" name="evidence" id="evidence" />
         <input type="button" value="Issue Badge!" class="issue" />
       </form>
+    </div>
+  </section>
 
+  <section class="claim">
+    <div class="wrapper">
       <h2>Claim a Badge</h2>
 
       <a href="claim.html">claim a badge</a>
@@ -119,8 +163,10 @@
 
   jQuery(function(){
     var menuOffset = jQuery('header')[0].offsetTop;
+    console.log("menuOffset: " + menuOffset);
     jQuery(document).bind('ready scroll',function() {
       var docScroll = jQuery(document).scrollTop();
+      console.log("docScroll: " + docScroll);
       if(docScroll >= menuOffset) {
         jQuery('header').addClass('fixed');
         jQuery('.mainsection').addClass('fixedheader');
