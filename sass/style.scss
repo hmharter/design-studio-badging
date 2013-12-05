@@ -1,3 +1,73 @@
+// Color definitions
+$darkblue: #2C3E50;
+$blue1: #36A2EA;
+$blue2: #277BB3;
+$gray: #ECF0F1;
+$darkgray: #333333;
+$red: #D54233;
+$white: #FFFFFF;
+
+
+// Font definitions
+$badgerfont: "Lato", Helvetica, Arial, sans-serif;
+$headerfont: "Fjalla One", Helvetica, Arial, sans-serif;
+$bodyfont: "Open Sans", Georgia, Times, serif;
+
+// Set defaults
+$h2color: $darkblue;
+$acolor: $darkgray;
+$textcolor: $darkgray;
+
+// Header and Navigation
+$headerbg: $darkblue;
+$headertext: $white;
+$navhoverbg: $white;
+$navhovertext: $darkblue;
+
+// Intro section
+$introbg: $darkblue;
+$introtext: $white;
+$buttonbg: $blue1;
+$buttontext: $white;
+$introbuttonbg: $red;
+$introbuttontext: $white;
+$introbuttonhoverbg: $white;
+$introbuttonhovertext: $darkblue;
+$introgetstartedtext: $white;
+$introgetstartedhoverbg: $blue2;
+
+// Get Started section
+$getstartedbg: $gray;
+$getstartedtext: $textcolor;
+$getstarteda: $acolor;
+
+// Register section
+$regbg: $gray;
+$regh2: $h2color;
+$regtext: $textcolor;
+$rega: $acolor;
+
+// Create section
+$createbg: $blue2;
+$createh2: $white;
+$createtext: $white;
+$createa: $white;
+
+// Issue section
+$issuebg: $gray;
+$issueh2: $h2color;
+$issuetext: $textcolor;
+$issuea: $acolor;
+
+// Claim section
+$claimbg: $blue2;
+$claimh2: $white;
+$claimtext: $white;
+$claima: $white;
+
+
+
+
 
 * {margin: 0; padding: 0;}
 
@@ -6,33 +76,42 @@
 }*/
 
 body, h1, h2, h3, h4, h5, h6, p {
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-family: $bodyfont;
     font-weight: 300;
 }
 
 .clear {clear: both;}
-h1 {float: left; margin: 0.25em;}
-h2 {padding: 10px; color: #7D1935; font-size: 3em; font-weight: 800;}
+h1 {float: left; margin: 0.25em; font-family: $headerfont;}
+h2 {padding: 10px; color: $h2color; font-size: 3em; font-weight: 800; font-family: $headerfont;}
+#intro .text {font-family: $badgerfont;}
 ul {list-style:none;}
 p, li {font-size: 1.3em; padding: .5em 1em;}
-a {color: #333;}
+a {color: $acolor; text-decoration: underline; &:hover {background: $red;}; cursor: pointer;}
 .hidden {position: absolute; margin-left: -9999px; height: 0.01em;}
+p.highlight {background: #dedede;}
+
 section {
-  min-height: 500px;
+  min-height: 800px;
   width: 100%;
   margin:0; padding:0;
+  a {font-weight: bold;}
 }
 
-section.getstarted {background: #EFB482; min-height: 300px;}
-section.create {background: #31C6CE;}
-section.issue {background: #F1564F;}
-section.claim {background: #FFFBE8;}
+#getstarted {background: $getstartedbg; }
+#register {overflow: scroll; font-size: 80%; background: $regbg; color: $regtext; a {color: $rega;} h2 {color: $regh2;}}
+#create {background: $createbg; color: $createtext; a {color: $createa;} h2 {color: $createh2;}}
+#issue {background: $issuebg; color: $issuetext; a {color: $issuea;}h2 {color: $issueh2;}}
+#claim {background: $claimbg; color: $claimtext; a {color: $claima;}h2 {color: $claimh2;}}
+
+.gsissueclick, .gsclaimclick {
+  color: $blue2; font-weight: bold; cursor: pointer;
+}
 
 #container {
   margin: 0 auto;
-    width: 80%;
+  width: 80%;
   max-width: 1000px;
-    color: #333;
+  color: $textcolor;
   position: relative;
 }
 
@@ -46,18 +125,65 @@ section.claim {background: #FFFBE8;}
 header {
   clear: both;
   z-index: 500;
-  background: #FFFFFF;
+  background: $headerbg;
+  color: $headertext;
   position: relative;
   width: 100%;
   visibility:hidden;
   top: 0;
   height: 0em;
-}
-header.fixed {
-  position: fixed;
-  visibility: visible;
-  display: block;
-  height: 4em;
+  a {
+    color: $headertext;
+  }
+  h1 {
+    margin-left: 0.1em;
+  }
+  img {
+    height: 2.5em;
+    width: auto;
+    float: left;
+    margin: 0.7em 0 0.2em 0.5em;
+    position: absolute;
+    display: none;
+  }
+  nav {
+    height: 100%;
+    width: 100%;
+    ul {
+      display: inline-block;
+      margin-top: .65em;
+      width: 100%;
+      text-align: center;
+      li {
+        display: inline-block;
+        font-size: 1.1em;
+        width: 15%;
+        padding: .5em 0;
+        transition: padding .5s ease;
+        &:hover, &.current {
+          background: $navhoverbg;
+          a {
+            color: $navhovertext;
+          }
+        }
+        a {
+          text-decoration: none;
+          &:hover, &.current {
+            background: $white;
+          }
+        }
+      }
+    }
+  }
+  &.fixed {
+    position: fixed;
+    visibility: visible;
+    display: block;
+    height: 4em;
+    img {
+      display: block;
+    }
+  }
 }
 
 .header {
@@ -66,79 +192,76 @@ header.fixed {
   max-width: 1000px;
 }
 
-header h1 {
-  margin-left: 0.1em;
-}
-header img {
-  height: 2.5em;
-  width: auto;
-  float: left;
-  margin: 0.7em 0 0.2em 0.5em;
-  position: absolute;
-  display: none;
-}
-
-header.fixed img {
-  display: block;
-}
-
-header nav {
-  height: 100%;
-  width: 100%;
-}
-
-nav ul {
-  display: inline-block;
-  margin-top: .65em;
-  width: 100%;
-  text-align: center;
-}
-nav ul li {
-  display: inline-block;
-  font-size: 1.1em;
-  width: 15%;
-  padding: .5em 0;
-  transition: padding .5s ease;
-}
-nav ul li:hover {
-  background: #4A96AD;
-}
-nav ul li:hover a {
-  color: #fff;
-}
-nav ul li a {
-  text-decoration: none;
-}
-
-
-
-.hero {
+#intro {
+  background: -moz-radial-gradient(10% 50%, circle, $darkblue, darken($darkblue, 10%));
+  background: -ms-radial-gradient(10% 50%, circle, $darkblue, darken($darkblue, 10%));
+  background: -webkit-radial-gradient(50% 5%, circle, lighten($darkblue, 10%), darken($darkblue, 10%));
+  background: radial-gradient(50% 10%, circle, $darkblue, darken($darkblue, 10%));
+  background-position: fixed;
   clear: both;
   display: block;
+  // position: fixed;
   height: 13em;
-  background: #3D3446;
+  // background: $introbg;
   text-align: center;
+  a {
+    font-weight: normal;
+  }
+  .wrapper {
+    width: 42em;
+    height: 31em;
+    padding: 0;
+  }
+  img {
+    float: left;
+    height: 10em;
+    width: auto;
+  }
+  .text {
+    color: $introtext;
+    float: left;
+    font-size: 9em;
+    line-height: 1em;
+    font-weight: 800;
+    margin-left: .15em;
+  }
+  .introbuttons {
+    margin-top: 2em;
+    clear: both;
+  }
+  .introbutton {
+    width: 28%;
+    float: left;
+    color: $introbuttontext;
+    background: $introbuttonbg;
+    font-size: 2em;
+    padding: 0.5em;
+    margin: 0.5em;
+    box-sizing: border-box;
+    a {
+      color: $introbuttontext;
+      text-decoration: none;
+    }
+    &:hover, &:hover a, a:hover {
+      background: $introbuttonhoverbg;
+      color: $introbuttonhovertext;
+      cursor: pointer;
+    }
+  }
+  .helpgetstarted {
+    clear: both;
+    color: $introgetstartedtext;
+    padding-top: 2em;
+    a {
+      color: $introgetstartedtext;
+      text-decoration: underline;
+      padding: 0.5em;
+    }
+    a:hover {
+      background: $introgetstartedhoverbg;
+    }
+  }
 }
-.hero .wrapper {
-  width: 42em;
-  height: 12.5em;
-  padding: 0;
-}
-
-.hero img {
-  float: left;
-  height: 10em;
-  width: auto;
-}
-.hero .text {
-  color: #fff;
-  float: left;
-  font-size: 9em;
-  line-height: 1em;
-  font-weight: 800;
-  margin-left: .15em;
-}
-
 
 /* Form Code */
 
@@ -161,35 +284,43 @@ nav ul li a {
 }
 
 form {
-  width:300px;
-  margin: 20px auto;
+  // width: 600px;
+  margin: 0 5em;
 }
 
 label {
-  width:300px;
-  display:block;
+  // width:300px;
+  // display:block; //display block messes with radio buttons and checkbox layout
   margin-top:5px;
-
+  font-size: 1.2em;
+  // float: left;
 }
 
 input, textarea, select {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // float: left;
+  font-family: $bodyfont;
   border: none;
-  font-size:20px;
-  width:300px;
+  font-size:1em;
+  width: 100%;
+  min-width:300px;
   min-height:30px;
   display:block;
   margin-bottom:15px;
   margin-top:5px;
   outline: none;
-
+  padding: 0 0.25em;
 }
 
 input[type="button"] {
-  background: #4A96AD;
-  color: #fff;
-  padding: .5em 1em;
+  background: $buttonbg;
+  color: $buttontext;
+  padding: 0.5em 1em;
   font-size: 1.5em;
+  cursor: pointer;
+}
+
+input[type=file] {
+  display: none;
 }
 
 input[type=submit] {
@@ -201,4 +332,30 @@ input[type=checkbox], input[type=radio] {
   width: auto;
   margin-right: 0.5em;
   display: inline;
+}
+
+// Register form popup styles
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+input[type="button"].regissuer {
+  float: left;
+  min-width: 0;
+  width: 65%;
+}
+input[type="button"].cancelreg {
+  float: right;
+  width: 30%;
+  min-width: 0;
+  background: $red;
 }

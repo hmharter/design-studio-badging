@@ -4,10 +4,9 @@
 include("config.php");
 session_start();
 
-
 $uid = time();
 $badgeid = $_POST['badges'];
-$email = $_POST['emailaddress'];
+$email = $_POST['issueemailaddress'];
 $evidence = $_POST['evidence'];
 $issuedOn = $uid;
 $badge = "http://insys.vmhost.psu.edu/~hms181/badging/data/badges/$badgeid.json";
@@ -19,8 +18,6 @@ $image = mysql_result($result, 0);
 
 $query = "INSERT INTO assertions (assertionid, badgeid, email) VALUES ('$uid','$badgeid','$email')";
 $result = mysql_query($query) or die(mysql_error());
-
-
 
     function hashEmailAddress($email, $salt) {
       return 'sha256$' . hash('sha256', $email . $salt);
@@ -40,7 +37,6 @@ $result = mysql_query($query) or die(mysql_error());
     fclose($handle);
 
     echo "http://insys.vmhost.psu.edu/~hms181/badging/data/assertions/$uid.json";
-
 
 ?>
 

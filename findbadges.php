@@ -4,7 +4,7 @@
 include("config.php");
 session_start();
 
-//$email = mysql_real_escape_string($_POST['emailaddress']);
+//$email = mysql_real_escape_string($_POST['claimemailaddress']);
 $email = "hmharter@gmail.com";
 
 
