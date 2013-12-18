@@ -57,8 +57,9 @@ a {
   cursor: pointer;
 }
 /* line 89, ../sass/style.scss */
-a:hover {
+a:hover, a:focus, a:active {
   background: #d54233;
+  color: white;
 }
 
 /* line 90, ../sass/style.scss */
@@ -73,106 +74,108 @@ p.highlight {
   background: #dedede;
 }
 
-/* line 93, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
+.note {
+  padding-bottom: 1em;
+}
+
+/* line 94, ../sass/style.scss */
 section {
   min-height: 800px;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-/* line 97, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 section a {
   font-weight: bold;
 }
 
-/* line 100, ../sass/style.scss */
+/* line 101, ../sass/style.scss */
 #getstarted {
   background: #ecf0f1;
 }
 
-/* line 101, ../sass/style.scss */
-#register {
+/* line 102, ../sass/style.scss */
+#register, .register {
   overflow: scroll;
   font-size: 80%;
   background: #ecf0f1;
   color: #333333;
 }
-/* line 101, ../sass/style.scss */
-#register a {
+/* line 102, ../sass/style.scss */
+#register a, .register a {
   color: #333333;
 }
-/* line 101, ../sass/style.scss */
-#register h2 {
+/* line 102, ../sass/style.scss */
+#register h2, .register h2 {
   color: #2c3e50;
 }
 
-/* line 102, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 #create {
   background: #277bb3;
   color: white;
 }
-/* line 102, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 #create a {
   color: white;
 }
-/* line 102, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 #create h2 {
   color: white;
 }
 
-/* line 103, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
 #issue {
   background: #ecf0f1;
   color: #333333;
 }
-/* line 103, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
 #issue a {
   color: #333333;
 }
-/* line 103, ../sass/style.scss */
+/* line 104, ../sass/style.scss */
 #issue h2 {
   color: #2c3e50;
 }
 
-/* line 104, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 #claim {
   background: #277bb3;
   color: white;
 }
-/* line 104, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 #claim a {
   color: white;
 }
-/* line 104, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 #claim h2 {
   color: white;
 }
 
-/* line 106, ../sass/style.scss */
+/* line 109, ../sass/style.scss */
 .gsissueclick, .gsclaimclick {
   color: #277bb3;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* line 110, ../sass/style.scss */
-#container {
-  margin: 0 auto;
-  width: 80%;
-  max-width: 1000px;
-  color: #333333;
-  position: relative;
+/* line 112, ../sass/style.scss */
+p.gsclaim {
+  margin-bottom: 1em;
 }
 
-/* line 118, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
 .wrapper {
-  width: 50em;
+  width: 80%;
+  max-width: 45em;
   margin: 0 auto;
   position: relative;
   padding-top: 5em;
 }
 
-/* line 125, ../sass/style.scss */
+/* line 129, ../sass/style.scss */
 header {
   clear: both;
   z-index: 500;
@@ -184,15 +187,19 @@ header {
   top: 0;
   height: 0em;
 }
-/* line 135, ../sass/style.scss */
+/* line 139, ../sass/style.scss */
+header .wrapper {
+  padding: 0;
+}
+/* line 142, ../sass/style.scss */
 header a {
   color: white;
 }
-/* line 138, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 header h1 {
   margin-left: 0.1em;
 }
-/* line 141, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 header img {
   height: 2.5em;
   width: auto;
@@ -201,19 +208,19 @@ header img {
   position: absolute;
   display: none;
 }
-/* line 149, ../sass/style.scss */
+/* line 156, ../sass/style.scss */
 header nav {
   height: 100%;
   width: 100%;
 }
-/* line 152, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 header nav ul {
   display: inline-block;
   margin-top: .65em;
   width: 100%;
   text-align: center;
 }
-/* line 157, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 header nav ul li {
   display: inline-block;
   font-size: 1.1em;
@@ -221,70 +228,63 @@ header nav ul li {
   padding: .5em 0;
   transition: padding .5s ease;
 }
-/* line 163, ../sass/style.scss */
-header nav ul li:hover, header nav ul li.current {
+/* line 170, ../sass/style.scss */
+header nav ul li:hover, header nav ul li:focus, header nav ul li:active, header nav ul li.current {
   background: white;
 }
-/* line 165, ../sass/style.scss */
-header nav ul li:hover a, header nav ul li.current a {
+/* line 172, ../sass/style.scss */
+header nav ul li:hover a, header nav ul li:focus a, header nav ul li:active a, header nav ul li.current a {
   color: #2c3e50;
 }
-/* line 169, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 header nav ul li a {
   text-decoration: none;
 }
-/* line 171, ../sass/style.scss */
-header nav ul li a:hover, header nav ul li a.current {
+/* line 178, ../sass/style.scss */
+header nav ul li a:hover, header nav ul li a:focus, header nav ul li a:active, header nav ul li a.current {
   background: white;
 }
-/* line 178, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 header.fixed {
   position: fixed;
   visibility: visible;
   display: block;
   height: 4em;
 }
-/* line 183, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
 header.fixed img {
   display: block;
 }
 
-/* line 189, ../sass/style.scss */
-.header {
-  width: 80%;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-/* line 195, ../sass/style.scss */
+/* line 196, ../sass/style.scss */
 #intro {
-  background: -moz-radial-gradient(10% 50%, circle, #2c3e50, #1a242f);
-  background: -ms-radial-gradient(10% 50%, circle, #2c3e50, #1a242f);
-  background: -webkit-radial-gradient(50% 5%, circle, #3e5771, #1a242f);
-  background: radial-gradient(50% 10%, circle, #2c3e50, #1a242f);
+  background: -moz-radial-gradient(50% 25%, circle, #3e5771, #1a242f);
+  background: -ms-radial-gradient(50% 25%, circle, #3e5771, #1a242f);
+  background: -webkit-radial-gradient(50% 25%, circle, #3e5771, #1a242f);
+  background: radial-gradient(50% 25%, circle, #3e5771, #1a242f);
   background-position: fixed;
   clear: both;
   display: block;
   height: 13em;
   text-align: center;
 }
-/* line 207, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 #intro a {
   font-weight: normal;
 }
-/* line 210, ../sass/style.scss */
+/* line 211, ../sass/style.scss */
 #intro .wrapper {
   width: 42em;
   height: 31em;
   padding: 0;
 }
-/* line 215, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 #intro img {
   float: left;
   height: 10em;
   width: auto;
 }
-/* line 220, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 #intro .text {
   color: white;
   float: left;
@@ -293,12 +293,12 @@ header.fixed img {
   font-weight: 800;
   margin-left: .15em;
 }
-/* line 228, ../sass/style.scss */
+/* line 229, ../sass/style.scss */
 #intro .introbuttons {
   margin-top: 2em;
   clear: both;
 }
-/* line 232, ../sass/style.scss */
+/* line 233, ../sass/style.scss */
 #intro .introbutton {
   width: 28%;
   float: left;
@@ -309,36 +309,36 @@ header.fixed img {
   margin: 0.5em;
   box-sizing: border-box;
 }
-/* line 241, ../sass/style.scss */
+/* line 242, ../sass/style.scss */
 #intro .introbutton a {
   color: white;
   text-decoration: none;
 }
-/* line 245, ../sass/style.scss */
-#intro .introbutton:hover, #intro .introbutton:hover a, #intro .introbutton a:hover {
+/* line 246, ../sass/style.scss */
+#intro .introbutton:hover, #intro .introbutton:focus, #intro .introbutton:active, #intro .introbutton:hover a, #intro .introbutton:focus a, #intro .introbutton:active a, #intro .introbutton a:hover, #intro .introbutton a:focus, #intro .introbutton a:active {
   background: white;
   color: #2c3e50;
   cursor: pointer;
 }
-/* line 251, ../sass/style.scss */
+/* line 252, ../sass/style.scss */
 #intro .helpgetstarted {
   clear: both;
   color: white;
   padding-top: 2em;
 }
-/* line 255, ../sass/style.scss */
+/* line 256, ../sass/style.scss */
 #intro .helpgetstarted a {
   color: white;
   text-decoration: underline;
   padding: 0.5em;
 }
-/* line 260, ../sass/style.scss */
-#intro .helpgetstarted a:hover {
+/* line 261, ../sass/style.scss */
+#intro .helpgetstarted a:hover, #intro .helpgetstarted a:focus, #intro .helpgetstarted a:active {
   background: #277bb3;
 }
 
 /* Form Code */
-/* line 268, ../sass/style.scss */
+/* line 269, ../sass/style.scss */
 :invalid {
   border-color: #e88;
   -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
@@ -348,7 +348,7 @@ header.fixed img {
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
 }
 
-/* line 277, ../sass/style.scss */
+/* line 278, ../sass/style.scss */
 :required {
   border-color: #88a;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
@@ -358,18 +358,18 @@ header.fixed img {
   box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
 }
 
-/* line 286, ../sass/style.scss */
+/* line 287, ../sass/style.scss */
 form {
   margin: 0 5em;
 }
 
-/* line 291, ../sass/style.scss */
+/* line 292, ../sass/style.scss */
 label {
   margin-top: 5px;
   font-size: 1.2em;
 }
 
-/* line 299, ../sass/style.scss */
+/* line 300, ../sass/style.scss */
 input, textarea, select {
   font-family: "Open Sans", Georgia, Times, serif;
   border: none;
@@ -384,7 +384,7 @@ input, textarea, select {
   padding: 0 0.25em;
 }
 
-/* line 314, ../sass/style.scss */
+/* line 315, ../sass/style.scss */
 input[type="button"] {
   background: #36a2ea;
   color: white;
@@ -393,25 +393,25 @@ input[type="button"] {
   cursor: pointer;
 }
 
-/* line 322, ../sass/style.scss */
+/* line 323, ../sass/style.scss */
 input[type=file] {
   display: none;
 }
 
-/* line 326, ../sass/style.scss */
+/* line 327, ../sass/style.scss */
 input[type=submit] {
   background: none;
   padding: 10px;
 }
 
-/* line 331, ../sass/style.scss */
+/* line 332, ../sass/style.scss */
 input[type=checkbox], input[type=radio] {
   width: auto;
   margin-right: 0.5em;
   display: inline;
 }
 
-/* line 338, ../sass/style.scss */
+/* line 339, ../sass/style.scss */
 .ui-widget-overlay {
   position: absolute;
   top: 0;
@@ -421,19 +421,19 @@ input[type=checkbox], input[type=radio] {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 347, ../sass/style.scss */
+/* line 348, ../sass/style.scss */
 .no-close .ui-dialog-titlebar-close {
   display: none;
 }
 
-/* line 351, ../sass/style.scss */
+/* line 352, ../sass/style.scss */
 input[type="button"].regissuer {
   float: left;
   min-width: 0;
   width: 65%;
 }
 
-/* line 356, ../sass/style.scss */
+/* line 357, ../sass/style.scss */
 input[type="button"].cancelreg {
   float: right;
   width: 30%;

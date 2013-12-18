@@ -86,9 +86,10 @@ h2 {padding: 10px; color: $h2color; font-size: 3em; font-weight: 800; font-famil
 #intro .text {font-family: $badgerfont;}
 ul {list-style:none;}
 p, li {font-size: 1.3em; padding: .5em 1em;}
-a {color: $acolor; text-decoration: underline; &:hover {background: $red;}; cursor: pointer;}
+a {color: $acolor; text-decoration: underline; &:hover, &:focus, &:active {background: $red; color: $white;}; cursor: pointer;}
 .hidden {position: absolute; margin-left: -9999px; height: 0.01em;}
 p.highlight {background: #dedede;}
+.note {padding-bottom: 1em;}
 
 section {
   min-height: 800px;
@@ -98,25 +99,28 @@ section {
 }
 
 #getstarted {background: $getstartedbg; }
-#register {overflow: scroll; font-size: 80%; background: $regbg; color: $regtext; a {color: $rega;} h2 {color: $regh2;}}
+#register,.register {overflow: scroll; font-size: 80%; background: $regbg; color: $regtext; a {color: $rega;} h2 {color: $regh2;}}
 #create {background: $createbg; color: $createtext; a {color: $createa;} h2 {color: $createh2;}}
 #issue {background: $issuebg; color: $issuetext; a {color: $issuea;}h2 {color: $issueh2;}}
 #claim {background: $claimbg; color: $claimtext; a {color: $claima;}h2 {color: $claimh2;}}
 
+
+
 .gsissueclick, .gsclaimclick {
   color: $blue2; font-weight: bold; cursor: pointer;
 }
-
-#container {
-  margin: 0 auto;
-  width: 80%;
-  max-width: 1000px;
-  color: $textcolor;
-  position: relative;
-}
+p.gsclaim {margin-bottom: 1em;}
+// #container {
+//   margin: 0 auto;
+//   width: 80%;
+//   max-width: 700px;
+//   color: $textcolor;
+//   position: relative;
+// }
 
 .wrapper {
-  width: 50em;
+  width: 80%;
+  max-width: 45em;
   margin: 0 auto;
   position: relative;
   padding-top: 5em;
@@ -132,6 +136,9 @@ header {
   visibility:hidden;
   top: 0;
   height: 0em;
+  .wrapper {
+    padding: 0;
+  }
   a {
     color: $headertext;
   }
@@ -160,7 +167,7 @@ header {
         width: 15%;
         padding: .5em 0;
         transition: padding .5s ease;
-        &:hover, &.current {
+        &:hover, &:focus, &:active, &.current {
           background: $navhoverbg;
           a {
             color: $navhovertext;
@@ -168,7 +175,7 @@ header {
         }
         a {
           text-decoration: none;
-          &:hover, &.current {
+          &:hover, &:focus, &:active, &.current {
             background: $white;
           }
         }
@@ -186,17 +193,11 @@ header {
   }
 }
 
-.header {
-  width: 80%;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
 #intro {
-  background: -moz-radial-gradient(10% 50%, circle, $darkblue, darken($darkblue, 10%));
-  background: -ms-radial-gradient(10% 50%, circle, $darkblue, darken($darkblue, 10%));
-  background: -webkit-radial-gradient(50% 5%, circle, lighten($darkblue, 10%), darken($darkblue, 10%));
-  background: radial-gradient(50% 10%, circle, $darkblue, darken($darkblue, 10%));
+  background: -moz-radial-gradient(50% 25%, circle, lighten($darkblue, 10%), darken($darkblue, 10%));
+  background: -ms-radial-gradient(50% 25%, circle, lighten($darkblue, 10%), darken($darkblue, 10%));
+  background: -webkit-radial-gradient(50% 25%, circle, lighten($darkblue, 10%), darken($darkblue, 10%));
+  background: radial-gradient(50% 25%, circle, lighten($darkblue, 10%), darken($darkblue, 10%));
   background-position: fixed;
   clear: both;
   display: block;
@@ -242,7 +243,7 @@ header {
       color: $introbuttontext;
       text-decoration: none;
     }
-    &:hover, &:hover a, a:hover {
+    &:hover, &:focus, &:active, &:hover a, &:focus a, &:active a, a:hover, a:focus, a:active {
       background: $introbuttonhoverbg;
       color: $introbuttonhovertext;
       cursor: pointer;
@@ -257,7 +258,7 @@ header {
       text-decoration: underline;
       padding: 0.5em;
     }
-    a:hover {
+    a:hover, a:focus, a:active {
       background: $introgetstartedhoverbg;
     }
   }

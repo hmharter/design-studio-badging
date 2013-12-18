@@ -24,7 +24,6 @@ $("#registernow").on("click", function() {
 $(".cancelreg").on("click", function() {
   $(".register").dialog("close");
 });
-
 $("input.regissuer").on("click",function() {
   // console.log("regissuer click");
   $.post('regissuer.php', $("form#regissuer").serialize())
@@ -40,6 +39,8 @@ $("input.create").on("click",function() {
   $.post('badgecreate.php', $("form#createbadge").serialize())
     .done( function(url) {
       // console.log("Badge URL: " + url);
+      alert("Your badge has been created!");
+      $("form#createbadge").find("input[type=text], input[type=url], input[type=email], textarea").val("");
   });
   refreshbadges();
 });
@@ -51,6 +52,9 @@ $("input.issue").on("click",function() {
       // console.log("Assertion URL: " + url);
       if (url.indexOf("http") < 0) {
         alert("You have already issued this badge. Please choose another badge or specify a different recipient.");
+      } else {
+        alert("Your badge has been issued!");
+        $("form#issuebadge").find("input[type=text], input[type=url], input[type=email], textarea").val("");
       }
   });
 });
